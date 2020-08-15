@@ -1,0 +1,74 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# totervogel <img src="man/figures/logo.png" align="right" height="200" />
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of totervogel is to detect malicious twitter accounts using Benford's Law.
+
+Please refer to Golbeck (2015) and Golbeck (2019) for more details.
+
+1. Golbeck, J. (2015). Benford’s law applies to online social networks. PloS one, 10(8), e0135169. doi: [10.1371/journal.pone.0135169](https://doi.org/10.1371/journal.pone.0135169)
+2. Golbeck, J. (2019). Benford’s Law can detect malicious social bots. First Monday. doi: [10.5210/fm.v24i8.10163](https://doi.org/10.5210/fm.v24i8.10163)
+
+## Installation
+
+You can install the development version of totervogel from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("chainsawriot/totervogel")
+```
+
+## Example
+
+This is how my totervogel looks like:
+
+```{r myaccount}
+library(totervogel)
+res <- create_totervogel("chainsawriot")
+res
+```
+
+```{r plotmyaccount, echo = FALSE}
+plot(res)
+```
+
+This is how a potentially malicious twitter account's totervogel looks like:
+
+(Please don't visit the account.)
+
+```{r malicious}
+
+
+malicious_res <- create_totervogel("badluck_jones")
+malicious_res
+```
+
+```{r plotmalicious, echo = TRUE}
+plot(malicious_res)
+```
+
+```{r}
+malicious_res$friends_benford
+```
+
+# Notes
+
+* In Globeck (2015), 89.7% of Twitter users had a correction of over 0.9. Less than 1% had a correlation under 0.5. An account must be very suspicious to have such a low correction.
+
+* Accounts with a lower friends count are more likely to detect a low Benfordness.

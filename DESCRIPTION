@@ -1,0 +1,21 @@
+Package: totervogel
+Title: Detection of Malicious Twitter Accounts Using Benford's Law
+Version: 0.0.0.1
+Authors@R: 
+    person(given = "Chung-hong",
+           family = "Chan",
+           role = c("aut", "cre"),
+           email = "chainsawtiney@gmail.com",
+           comment = c(ORCID = "0000-0002-6232-7530"))
+Description: It is still experimental.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    magrittr,
+    ggplot2,
+    tidyr,
+    rtweet,
+    benford.analysis
