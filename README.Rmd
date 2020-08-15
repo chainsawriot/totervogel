@@ -69,6 +69,6 @@ malicious_res$friends_benford
 
 # Notes
 
-* In Globeck (2015), 89.7% of Twitter users had a correction of over 0.9. Less than 1% had a correlation under 0.5. An account must be very suspicious to have such a low correction.
+* In Golbeck (2015), 89.7% of Twitter users had a correction of over 0.9. Less than 1% had a correlation under 0.5. An account must be very suspicious to have such a low correction.
 
-* Accounts with a lower friends count are more likely to detect a low Benfordness.
+* Accounts with a lower friends count are more likely to be detected with lower Benfordness.
