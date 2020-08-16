@@ -20,10 +20,11 @@ knitr::opts_chunk$set(
 
 The goal of totervogel is to detect malicious twitter accounts using Benford's Law.
 
-Please refer to Golbeck (2015) and Golbeck (2019) for more details.
+Please refer to Golbeck (2015) and Golbeck (2019) for more details about the analysis of first significant digits. For the analysis of last significant digits, please refer to Dlugosz & Müller-Funk (2009)
 
 1. Golbeck, J. (2015). Benford’s law applies to online social networks. PloS one, 10(8), e0135169. doi: [10.1371/journal.pone.0135169](https://doi.org/10.1371/journal.pone.0135169)
 2. Golbeck, J. (2019). Benford’s Law can detect malicious social bots. First Monday. doi: [10.5210/fm.v24i8.10163](https://doi.org/10.5210/fm.v24i8.10163)
+3. Dlugosz, S., & Müller-Funk, U. (2009). The value of the last digit: Statistical fraud detection with digit analysis. Advances in data analysis and classification, 3(3), 281. doi:[10.1007/s11634-009-0048-5](https://doi.org/10.1007/s11634-009-0048-5)
 
 ## Installation
 
@@ -36,35 +37,46 @@ devtools::install_github("chainsawriot/totervogel")
 
 ## Example
 
-This is how my totervogel looks like:
+This is how the totervogel of an organic human account looks like. By default, it analyzes the friends.
 
 ```{r myaccount}
 library(totervogel)
-res <- create_totervogel("chainsawriot")
+res <- create_totervogel("scott_althaus")
 res
 ```
 
-```{r plotmyaccount, echo = FALSE}
+```{r plotmyaccount}
 plot(res)
 ```
 
-This is how a potentially malicious twitter account's totervogel looks like:
+You can also analyze followers.
 
-(Please don't visit the account.)
+```{r followers}
+res_fol <- create_totervogel("scott_althaus", followers = TRUE)
+res_fol
+```
+
+```{r folplot}
+plot(res_fol)
+```
+
+A potentially malicious twitter account's totervogel results might look like:
+
+(Please don't visit these accounts.)
 
 ```{r malicious}
-
-
 malicious_res <- create_totervogel("badluck_jones")
 malicious_res
 ```
 
-```{r plotmalicious, echo = TRUE}
-plot(malicious_res)
+
+```{r malicious2}
+malicious_res2 <- create_totervogel("yoyo13148779", followers = TRUE)
+malicious_res2
 ```
 
-```{r}
-malicious_res$friends_benford
+```{r plotmalicious2, echo = TRUE}
+plot(malicious_res2)
 ```
 
 # Notes
@@ -72,3 +84,7 @@ malicious_res$friends_benford
 * In Golbeck (2015), 89.7% of Twitter users had a correction of over 0.9. Less than 1% had a correlation under 0.5. An account must be very suspicious to have such a low correction.
 
 * Accounts with a lower friends count are more likely to be detected with lower Benfordness.
+
+* The last digit analysis is experimental. The results should only raise your eyebrows, if more than one aspect (friends, statuses, followers) displays unexpected distribution.
+
+* The logo of this package is a remix of Kearney et al's  [rtweet](https://github.com/ropensci/rtweet)'s logo. The original logo is licensed under an MIT License.

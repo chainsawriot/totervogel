@@ -10,7 +10,9 @@
 The goal of totervogel is to detect malicious twitter accounts using
 Benford’s Law.
 
-Please refer to Golbeck (2015) and Golbeck (2019) for more details.
+Please refer to Golbeck (2015) and Golbeck (2019) for more details about
+the analysis of first significant digits. For the analysis of last
+significant digits, please refer to Dlugosz & Müller-Funk (2009)
 
 1.  Golbeck, J. (2015). Benford’s law applies to online social networks.
     PloS one, 10(8), e0135169. doi:
@@ -18,6 +20,10 @@ Please refer to Golbeck (2015) and Golbeck (2019) for more details.
 2.  Golbeck, J. (2019). Benford’s Law can detect malicious social bots.
     First Monday. doi:
     [10.5210/fm.v24i8.10163](https://doi.org/10.5210/fm.v24i8.10163)
+3.  Dlugosz, S., & Müller-Funk, U. (2009). The value of the last digit:
+    Statistical fraud detection with digit analysis. Advances in data
+    analysis and classification, 3(3), 281.
+    [doi:\[10.1007/s11634-009-0048-5](doi:%5B10.1007/s11634-009-0048-5)\](<https://doi.org/10.1007/s11634-009-0048-5>)
 
 ## Installation
 
@@ -31,95 +37,154 @@ devtools::install_github("chainsawriot/totervogel")
 
 ## Example
 
-This is how my totervogel looks like:
+This is how the totervogel of an organic human account looks like. By
+default, it analyzes the friends.
 
 ``` r
 library(totervogel)
-res <- create_totervogel("chainsawriot")
+res <- create_totervogel("scott_althaus")
 res
-#> User ID: chainsawriot 
-#> Friends Correlation:  0.9931321 
-#> Friends MAD:  0.007438397 ( Acceptable conformity )
-#> Statuses Correlation: 0.9909444 
-#> Statuses MAD:  0.01188518 ( Acceptable conformity )
-#> Followers Correlation:  0.9949865 
-#> Followers MAD:  0.006927456 ( Acceptable conformity )
+#> 
+#> ── scott_althaus ──
+#> 
+#> ● Type:Friends
+#> ● Total: 276
+#> ── First significant digit ──
+#> ── Friends
+#> Correlation:  0.991 / Chi-sq:  3.513
+#> 
+#> ── Statuses
+#> Correlation:  0.981 / Chi-sq:  6.143
+#> 
+#> ── Followers
+#> Correlation:  0.949 / Chi-sq:  13.892
+#> 
+#> ── Last significant digit ──
+#> 
+#> ── Friends
+#> Chi-sq:  2.261
+#> 
+#> ── Statuses
+#> Chi-sq:  11.971
+#> 
+#> ── Followers
+#> Chi-sq:  21.174
+```
+
+``` r
+plot(res)
 ```
 
 <img src="man/figures/README-plotmyaccount-1.png" width="100%" />
 
-This is how a potentially malicious twitter account’s totervogel looks
+You can also analyze followers.
+
+``` r
+res_fol <- create_totervogel("scott_althaus", followers = TRUE)
+res_fol
+#> 
+#> ── scott_althaus ──
+#> 
+#> ● Type:Followers
+#> ● Total: 443
+#> ── First significant digit ──
+#> ── Friends
+#> Correlation:  0.976 / Chi-sq:  11.602
+#> 
+#> ── Statuses
+#> Correlation:  0.99 / Chi-sq:  4.356
+#> 
+#> ── Followers
+#> Correlation:  0.982 / Chi-sq:  8.039
+#> 
+#> ── Last significant digit ──
+#> 
+#> ── Friends
+#> Chi-sq:  4.562
+#> 
+#> ── Statuses
+#> Chi-sq:  4.833
+#> 
+#> ── Followers
+#> Chi-sq:  5.916
+```
+
+``` r
+plot(res_fol)
+```
+
+<img src="man/figures/README-folplot-1.png" width="100%" />
+
+A potentially malicious twitter account’s totervogel results might look
 like:
 
-(Please don’t visit the account.)
+(Please don’t visit these accounts.)
 
 ``` r
-
-
 malicious_res <- create_totervogel("badluck_jones")
 malicious_res
-#> User ID: badluck_jones 
-#> Friends Correlation:  0.9554649 
-#> Friends MAD:  0.01745583 ( Nonconformity )
-#> Statuses Correlation: 0.9995705 
-#> Statuses MAD:  0.002277119 ( Close conformity )
-#> Followers Correlation:  0.9965788 
-#> Followers MAD:  0.007197219 ( Acceptable conformity )
+#> 
+#> ── badluck_jones ──
+#> 
+#> ● Type:Friends
+#> ● Total: 5000
+#> ── First significant digit ──
+#> ── Friends
+#> Correlation:  0.953 / Chi-sq:  255.114
+#> 
+#> ── Statuses
+#> Correlation:  1 / Chi-sq:  3.168
+#> 
+#> ── Followers
+#> Correlation:  0.996 / Chi-sq:  27.806
+#> 
+#> ── Last significant digit ──
+#> 
+#> ── Friends
+#> Chi-sq:  14.336
+#> 
+#> ── Statuses
+#> Chi-sq:  7.7
+#> 
+#> ── Followers
+#> Chi-sq:  6.74
 ```
 
 ``` r
-plot(malicious_res)
+malicious_res2 <- create_totervogel("yoyo13148779", followers = TRUE)
+malicious_res2
+#> 
+#> ── yoyo13148779 ──
+#> 
+#> ● Type:Followers
+#> ● Total: 4998
+#> ── First significant digit ──
+#> ── Friends
+#> Correlation:  0.994 / Chi-sq:  36.329
+#> 
+#> ── Statuses
+#> Correlation:  0.999 / Chi-sq:  67.714
+#> 
+#> ── Followers
+#> Correlation:  0.999 / Chi-sq:  61.181
+#> 
+#> ── Last significant digit ──
+#> 
+#> ── Friends
+#> Chi-sq:  11.4
+#> 
+#> ── Statuses
+#> Chi-sq:  2724.977
+#> 
+#> ── Followers
+#> Chi-sq:  1613.481
 ```
-
-<img src="man/figures/README-plotmalicious-1.png" width="100%" />
 
 ``` r
-malicious_res$friends_benford
-#> 
-#> Benford object:
-#>  
-#> Data: info$friends_count 
-#> Number of observations used = 5000 
-#> Number of obs. for second order = 3319 
-#> First digits analysed = 1
-#> 
-#> Mantissa: 
-#> 
-#>    Statistic  Value
-#>         Mean  0.500
-#>          Var  0.075
-#>  Ex.Kurtosis -1.056
-#>     Skewness -0.063
-#> 
-#> 
-#> The 5 largest deviations: 
-#> 
-#>   digits absolute.diff
-#> 1      4        281.45
-#> 2      1        114.15
-#> 3      3        111.31
-#> 4      6         82.73
-#> 5      7         68.96
-#> 
-#> Stats:
-#> 
-#>  Pearson's Chi-squared test
-#> 
-#> data:  info$friends_count
-#> X-squared = 243.1, df = 8, p-value < 2.2e-16
-#> 
-#> 
-#>  Mantissa Arc Test
-#> 
-#> data:  info$friends_count
-#> L2 = 0.0083259, df = 2, p-value < 2.2e-16
-#> 
-#> Mean Absolute Deviation (MAD): 0.01745583
-#> MAD Conformity - Nigrini (2012): Nonconformity
-#> Distortion Factor: -2.03767
-#> 
-#> Remember: Real data will never conform perfectly to Benford's Law. You should not focus on p-values!
+plot(malicious_res2)
 ```
+
+<img src="man/figures/README-plotmalicious2-1.png" width="100%" />
 
 # Notes
 
@@ -129,3 +194,11 @@ malicious_res$friends_benford
 
   - Accounts with a lower friends count are more likely to be detected
     with lower Benfordness.
+
+  - The last digit analysis is experimental. The results should only
+    raise your eyebrows, if more than one aspect (friends, statuses,
+    followers) displays unexpected distribution.
+
+  - The logo of this package is a remix of Kearney et al’s
+    [rtweet](https://github.com/ropensci/rtweet)’s logo. The original
+    logo is licensed under an MIT License.

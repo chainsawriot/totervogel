@@ -1,6 +1,6 @@
 Package: totervogel
-Title: Detection of Malicious Twitter Accounts Using Benford's Law
-Version: 0.0.0.1
+Title: Digital Forensics for Twitter Using Benford's Law
+Version: 0.0.1
 Authors@R: 
     person(given = "Chung-hong",
            family = "Chan",
@@ -18,4 +18,5 @@ Imports:
     ggplot2,
     tidyr,
     rtweet,
-    benford.analysis
+    benford.analysis,
+    cli
