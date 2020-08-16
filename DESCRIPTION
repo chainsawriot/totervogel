@@ -1,6 +1,6 @@
 Package: totervogel
 Title: Digital Forensics for Twitter Using Benford's Law
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Chung-hong",
            family = "Chan",

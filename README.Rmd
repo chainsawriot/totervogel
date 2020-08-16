@@ -24,7 +24,8 @@ Please refer to Golbeck (2015) and Golbeck (2019) for more details about the ana
 
 1. Golbeck, J. (2015). Benford’s law applies to online social networks. PloS one, 10(8), e0135169. doi: [10.1371/journal.pone.0135169](https://doi.org/10.1371/journal.pone.0135169)
 2. Golbeck, J. (2019). Benford’s Law can detect malicious social bots. First Monday. doi: [10.5210/fm.v24i8.10163](https://doi.org/10.5210/fm.v24i8.10163)
-3. Dlugosz, S., & Müller-Funk, U. (2009). The value of the last digit: Statistical fraud detection with digit analysis. Advances in data analysis and classification, 3(3), 281. doi:[10.1007/s11634-009-0048-5](https://doi.org/10.1007/s11634-009-0048-5)
+3. Dlugosz, S., & Müller-Funk, U. (2009). The value of the last digit: Statistical fraud detection with digit analysis. Advances in data analysis and classification, 3(3), 281. doi: [10.1007/s11634-009-0048-5](https://doi.org/10.1007/s11634-009-0048-5)
+
 
 ## Installation
 

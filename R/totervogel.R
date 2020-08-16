@@ -117,5 +117,5 @@ plot.totervogel <- function(totervogel, ...) {
     statuses_df$type <- "statuses"
     res2 <- rbind(friends_df, followers_df, statuses_df)
     res2$digittype <- "Last significant digit"
-    rbind(res, res2) %>% tidyr::pivot_longer(tidyr::ends_with("dist"), names_to = "dist_type", values_to = "value") %>% ggplot2::ggplot(ggplot2::aes(x = digit, y = value, color = dist_type)) + ggplot2::geom_line() + ggplot2::geom_point() + ggplot2::facet_grid(rows = ggplot2::vars(digittype), cols = ggplot2::vars(type), scales = "free_y") + ggplot2::ggtitle(totervogel$user_id) + ggplot2::ylab("Frequency") + ggplot2::scale_x_continuous(breaks = seq(0, 9)) + ggplot2::scale_color_brewer(palette = "Dark2")
+    rbind(res, res2) %>% tidyr::pivot_longer(tidyr::ends_with("dist"), names_to = "Distribution", values_to = "value") %>% ggplot2::ggplot(ggplot2::aes(x = digit, y = value, color = Distribution)) + ggplot2::geom_line() + ggplot2::geom_point() + ggplot2::facet_grid(rows = ggplot2::vars(digittype), cols = ggplot2::vars(type), scales = "free_y") + ggplot2::ggtitle(totervogel$user_id, subtitle = paste0("Type:", ifelse(totervogel$followers, "Followers", "Friends"))) + ggplot2::ylab("Frequency") + ggplot2::scale_x_continuous(breaks = seq(0, 9)) + ggplot2::scale_color_brewer(palette = "Dark2")
 }

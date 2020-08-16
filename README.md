@@ -22,8 +22,8 @@ significant digits, please refer to Dlugosz & Müller-Funk (2009)
     [10.5210/fm.v24i8.10163](https://doi.org/10.5210/fm.v24i8.10163)
 3.  Dlugosz, S., & Müller-Funk, U. (2009). The value of the last digit:
     Statistical fraud detection with digit analysis. Advances in data
-    analysis and classification, 3(3), 281.
-    [doi:\[10.1007/s11634-009-0048-5](doi:%5B10.1007/s11634-009-0048-5)\](<https://doi.org/10.1007/s11634-009-0048-5>)
+    analysis and classification, 3(3), 281. doi:
+    [10.1007/s11634-009-0048-5](https://doi.org/10.1007/s11634-009-0048-5)
 
 ## Installation
 
@@ -62,13 +62,13 @@ res
 #> ── Last significant digit ──
 #> 
 #> ── Friends
-#> Chi-sq:  2.261
+#> Chi-sq:  3.638
 #> 
 #> ── Statuses
-#> Chi-sq:  11.971
+#> Chi-sq:  10.594
 #> 
 #> ── Followers
-#> Chi-sq:  21.174
+#> Chi-sq:  16.391
 ```
 
 ``` r
@@ -86,27 +86,27 @@ res_fol
 #> ── scott_althaus ──
 #> 
 #> ● Type:Followers
-#> ● Total: 443
+#> ● Total: 444
 #> ── First significant digit ──
 #> ── Friends
-#> Correlation:  0.976 / Chi-sq:  11.602
+#> Correlation:  0.975 / Chi-sq:  12.101
 #> 
 #> ── Statuses
-#> Correlation:  0.99 / Chi-sq:  4.356
+#> Correlation:  0.989 / Chi-sq:  4.37
 #> 
 #> ── Followers
-#> Correlation:  0.982 / Chi-sq:  8.039
+#> Correlation:  0.983 / Chi-sq:  7.891
 #> 
 #> ── Last significant digit ──
 #> 
 #> ── Friends
-#> Chi-sq:  4.562
+#> Chi-sq:  2.667
 #> 
 #> ── Statuses
-#> Chi-sq:  4.833
+#> Chi-sq:  5.82
 #> 
 #> ── Followers
-#> Chi-sq:  5.916
+#> Chi-sq:  5.144
 ```
 
 ``` r
@@ -130,24 +130,24 @@ malicious_res
 #> ● Total: 5000
 #> ── First significant digit ──
 #> ── Friends
-#> Correlation:  0.953 / Chi-sq:  255.114
+#> Correlation:  0.954 / Chi-sq:  249.836
 #> 
 #> ── Statuses
-#> Correlation:  1 / Chi-sq:  3.168
+#> Correlation:  1 / Chi-sq:  3.486
 #> 
 #> ── Followers
-#> Correlation:  0.996 / Chi-sq:  27.806
+#> Correlation:  0.996 / Chi-sq:  27.699
 #> 
 #> ── Last significant digit ──
 #> 
 #> ── Friends
-#> Chi-sq:  14.336
+#> Chi-sq:  13.116
 #> 
 #> ── Statuses
-#> Chi-sq:  7.7
+#> Chi-sq:  8.4
 #> 
 #> ── Followers
-#> Chi-sq:  6.74
+#> Chi-sq:  3.984
 ```
 
 ``` r
@@ -160,24 +160,24 @@ malicious_res2
 #> ● Total: 4998
 #> ── First significant digit ──
 #> ── Friends
-#> Correlation:  0.994 / Chi-sq:  36.329
+#> Correlation:  0.994 / Chi-sq:  40.182
 #> 
 #> ── Statuses
-#> Correlation:  0.999 / Chi-sq:  67.714
+#> Correlation:  0.999 / Chi-sq:  66.582
 #> 
 #> ── Followers
-#> Correlation:  0.999 / Chi-sq:  61.181
+#> Correlation:  0.999 / Chi-sq:  56.646
 #> 
 #> ── Last significant digit ──
 #> 
 #> ── Friends
-#> Chi-sq:  11.4
+#> Chi-sq:  5.305
 #> 
 #> ── Statuses
-#> Chi-sq:  2724.977
+#> Chi-sq:  2744.141
 #> 
 #> ── Followers
-#> Chi-sq:  1613.481
+#> Chi-sq:  1607.346
 ```
 
 ``` r
